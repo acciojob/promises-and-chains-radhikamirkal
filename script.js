@@ -1,22 +1,20 @@
-//your JS code here. If required.
 const form = document.getElementById("form");
 const ageInput = document.getElementById("age");
 const nameInput = document.getElementById("name");
 
 form.addEventListener("submit", function (e) {
-  e.preventDefault(); // prevent default form submit
+  e.preventDefault();
 
   const age = ageInput.value;
   const name = nameInput.value;
 
-  // Validation
+  // Validation (NO DOT)
   if (age === "" || name === "") {
-    alert("Please enter valid details.");
+    alert("Please enter valid details");
     return;
   }
 
-  // Promise logic
-  const votePromise = new Promise((resolve, reject) => {
+  const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
       if (age > 18) {
         resolve(`Welcome, ${name}. You can vote.`);
@@ -26,11 +24,5 @@ form.addEventListener("submit", function (e) {
     }, 4000);
   });
 
-  votePromise
-    .then((message) => {
-      alert(message);
-    })
-    .catch((error) => {
-      alert(error);
-    });
+  promise.then(alert).catch(alert);
 });
